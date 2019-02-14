@@ -1,0 +1,11 @@
+commit 047f2033f1645233ebde3e65c8d00a1333980607 (HEAD -> master)
+Author: Vika <lazarchuk.viktoriya@gmail.com>
+Date:   Fri Feb 15 00:56:36 2019 +0300
+
+    add task1 folder
+
+commit 5fc5248aa5963a449d72569395f96eaa165bed17
+Author: Vika <lazarchuk.viktoriya@gmail.com>
+Date:   Fri Feb 15 00:54:21 2019 +0300
+
+    add .gitignore
