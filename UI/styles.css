@@ -1,0 +1,267 @@
+*{
+	box-sizing: border-box;
+}
+a{
+	line-height: 0;
+	text-decoration: none;
+	color: #1c6a6a;
+}
+h1{
+	text-align: center;
+	font-family: 'Acme', sans-serif;
+	font-weight: 400;
+	font-size: 36px;
+	letter-spacing: normal;
+	text-transform: none;
+	color: #616e7e;
+	padding: none;
+}
+h3{
+	font-size: 20px;
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+}
+
+/*ПАНЕЛЬ НАВИГАЦИИ*/
+.nav-container{
+	border-radius: 5px; 
+	text-align: center;
+	background: #eff1f2;
+	width: 700px;
+	height: 50px;
+	margin: 1% auto;
+	padding-left: 1%;
+}
+.left-pos{
+	float: left;	
+}
+.right-pos{
+	float:right;
+	width: 25%;
+}
+.right-but{
+	margin-left: 10px;
+	float:right;
+	line-height: 3.25;
+}
+
+/*ГЛАВНАЯ ЧАСТЬ*/
+.main-container{
+	padding-top: 2%;
+	background: #eff1f2;
+	width: 700px;
+	margin: auto;
+	text-align: center;
+	border-radius: 15px; 
+}
+
+.left{
+	float: left;
+	margin: 2% 0 10%;
+}
+.right{
+	float: right;
+	margin: 2% 0 10%;
+}
+
+.photo-box{
+	border-radius: 5px; 
+	padding-top: 6%;
+	width: 600px;
+	margin: auto;
+	text-align: center;
+	background: white;
+	padding-bottom: 7%;
+}
+
+.album{
+	margin: auto; 
+	width: 500px;
+	text-align: justify;
+}
+
+.left-description{
+	float: left;
+	line-height: 0.5;
+	text-align: left;
+	font-family: 'Laila', serif;
+	font-weight:  bold;
+	letter-spacing: normal;
+	color: #2E3038;
+}
+#name{
+	font-size: 22px;
+}
+#date{
+	font-size: 16px;
+}
+.textfield{
+	font-family: 'Laila', serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	letter-spacing: normal;
+	color: #2E3038;
+	margin-left: 25%;
+	padding-left: 80px;
+	text-align: justify;
+}
+
+.hastag{
+	font-family: 'Neucha', cursive;
+	font-size: 18px;
+	color: #1c6a6a;
+	font-weight: 500;
+	letter-spacing: normal;
+}
+
+/*ФУТЕР*/
+.foot-container{
+	position: absolute;
+	background: #25282a;
+	width: 700px;
+	margin: 2% auto;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	letter-spacing: normal;
+	color: #616e7e;
+	line-height: 0.7;
+	border-radius: 15px; 
+}
+
+.left-footer{
+	float: left;
+	text-align: left;
+	margin-left: 2%; 
+}
+
+.right-footer{
+	float: right;
+	text-align: right;
+	margin-right: 2%;
+}
+/*ИЗОБРАЖЕНИЯ*/
+.icon{
+	vertical-align: text-bottom;
+	display: inline;
+	width: 40px;
+	margin: 3% 4% 0;
+}
+#iconinbox{
+	width: 30px;
+	margin: 0;
+}
+.picture{
+	border: 10px solid #1c6a6a;
+	border-radius: 5px;
+	width: 100%;
+}
+.dev{
+	width: 120%;
+	margin: -30px 0 20px -50px;
+}
+/*КНОПКИ*/
+.button{
+	height: 40px;
+	border-radius: 5px;
+	border: 0px;
+	color: white;
+	margin-top: 2% 
+}
+#load{
+	background-color: #1c6a6a;
+	width: 280px;
+	margin-bottom: 2%;
+}
+#login{
+	background-color: #1c6a6a;
+	width: 150px;
+	line-height: 0;
+	margin-top: 3%;
+}
+a:hover #load, a:hover #login{
+	background-color: #616e7e;
+}
+a:active #load, a:active #login{
+	background-color: #78afa9;
+}
+
+a:hover .icon, a:active h1{
+	filter: opacity(0.7);
+}
+
+a:active .icon{
+	filter: opacity(0.5);
+}
+
+/*ИЗМЕНЕНИЕ РАЗМЕРОВ*/
+@media (min-width: 1000px)
+{
+	.nav-container{
+		width: 900px;
+	}
+	.main-container {
+		width: 900px;
+	}
+	.photo-box{
+		width: 800px;
+	}
+	.album{
+		width: 750px;
+	}
+	.dev{
+		width: 800px;
+		height: 70px;
+		margin: -30px 0 20px -25px;
+	}
+	.foot-container {
+		width: 900px;
+	}
+}
+
+@media (min-width: 711px) and (max-width: 999px)
+{
+	.nav-container{
+		width: 700px;
+	}
+	.main-container {
+		width: 700px;
+	}
+	.foot-container {
+		width: 700px;
+	}
+}
+
+@media (min-width: 550px) and (max-width: 710px){
+	.nav-container{
+		width: 530px;
+	}
+	.main-container{
+		width: 530px;
+	}
+	.photo-box{
+		width: 500px;
+	}
+	.album{
+		width: 480px;
+	}
+	.foot-container {
+		width: 530px;
+	}
+	.icon{
+		margin: 5% 1% 0;
+		width: 35px;
+	}
+	.dev{
+		width: 500px;
+		margin: -5px 0 20px -10px;	
+	}
+	#iconinbox{
+		width: 25px;
+	}
+	h1{
+		font-size: 36px;
+	}
+}
