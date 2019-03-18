@@ -1,189 +1,229 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Acme|EB+Garamond|Laila|Neucha|Poppins" rel="stylesheet">
-    <title>Photo Album</title>
-  </head>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Acme|EB+Garamond|Laila|Neucha|Poppins" rel="stylesheet">
+	<title>Photo Album</title>
+</head>
 <body>
-  <header>
-    <nav>
-      <div class="nav-container">
-              <div class = "left-pos">
-              	<a href="index.html">
-              		<h1>Photo Album</h1></a>
-              </div>             
+	<header>
+		<nav class="nav-container">
+			<a href="index.html" class = "logo">
+				<h1>Photo Album</h1>
+			</a>           
+ 
+			<ul class="menu right-pos">
+				<li>
+					<a href="index.html"><img src="icons/user.png" alt="User icon" class ="icon" align="middle"></a>
+				</li>
+				<li>
+					<a href="index.html"><img src="icons/search.png" alt="Add icon" class="icon" align="middle"></a> 
+				</li>
+				<li>
+					<a href="index.html"><img src="icons/logout.png" alt="Logout" class ="icon" align="middle"></a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<main class = "main-container">
+		<div class = "photo-box">
+			<div class = "album">
+				<article>
+					<img src="pictures/1.jpg" class = "picture">
+					<div class="left-description">
+						<p class="description" id="name">username</p>
+						<p display="inline" id="date">10.02.2019 / 15:40</p>
+						<ul class = "hastag">
+						<li><a href="index.html">#lorem</a></li>
+						<li><a href="index.html">#adip</a></li>
+					</div>
+					<div class = "textfield">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
+					<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
+						<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
+						<img src="icons/devider.png" class = "dev">
+				</article>
 
-              <div class="right-pos"> 
-              <a href="index.html"><img src="icons/user.png" alt="User icon" class ="icon" align="middle"></a>
-              <a href="index.html"><img src="icons/search.png" alt="Add icon" class="icon" align="middle"></a>     
-              <a href="index.html"><img src="icons/logout.png" alt="Logout" class ="icon" align="middle"></a>
+				<article>
+					<img src="pictures/2.jpg" class = "picture">
+					<div class="left-description">
+						<p class="description">username</p>
+						<p display="inline">10.02.2019 / 15:40</p>
+						<ul class = "hastag">
+						<li><a href="index.html">#lorem</a></li>
+						<li><a href="index.html">#adip</a></li>
+					</div>
+					<div class = "textfield">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
+					<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
+						<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
+						<img src="icons/devider.png" class = "dev">
+				</article>
+
+				<article>
+					<img src="pictures/3.jpg" class = "picture">
+					<div class="left-description">
+						<p class="description">username</p>
+						<p display="inline">10.02.2019 / 15:40</p>
+						<ul class = "hastag">
+						<li><a href="index.html">#lorem</a></li>
+						<li><a href="index.html">#adip</a></li>
+					</div>
+					<div class = "textfield">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
+					<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
+						<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
+						<img src="icons/devider.png" class = "dev">
+				</article>
+
+				<article>
+					<img src="pictures/4.jpg" class = "picture">
+					<div class="left-description">
+						<p class="description">username</p>
+						<p display="inline">10.02.2019 / 15:40</p>
+						<ul class = "hastag">
+						<li><a href="index.html">#lorem</a></li>
+						<li><a href="index.html">#adip</a></li>
+					</div>
+					<div class = "textfield">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
+					<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
+						<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
+						<img src="icons/devider.png" class = "dev">
+				</article>
+
+				<article>
+					<img src="pictures/5.jpg" class = "picture">
+					<div class="left-description">
+						<p class="description">username</p>
+						<p display="inline">10.02.2019 / 15:40</p>
+						<ul class = "hastag">
+						<li><a href="index.html">#lorem</a></li>
+						<li><a href="index.html">#adip</a></li>
+					</div>
+					<div class = "textfield">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
+					<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
+						<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
+						<img src="icons/devider.png" class = "dev">
+				</article>
+
+				<article>
+					<img src="pictures/6.jpg" class = "picture">
+					<div class="left-description">
+						<p class="description">username</p>
+						<p display="inline">10.02.2019 / 15:40</p>
+						<ul class = "hastag">
+						<li><a href="index.html">#lorem</a></li>
+						<li><a href="index.html">#adip</a></li>
+					</div>
+					<div class = "textfield">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
+					<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
+						<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
+						<img src="icons/devider.png" class = "dev">
+				</article>
+
+				<article>
+					<img src="pictures/7.jpg" class = "picture">
+					<div class="left-description">
+						<p class="description">username</p>
+						<p display="inline">10.02.2019 / 15:40</p>
+						<ul class = "hastag">
+						<li><a href="index.html">#lorem</a></li>
+						<li><a href="index.html">#adip</a></li>
+					</div>
+					<div class = "textfield">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
+					<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
+						<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
+						<img src="icons/devider.png" class = "dev">
+				</article>
+
+				<article>
+					<img src="pictures/8.jpg" class = "picture">
+					<div class="left-description">
+						<p class="description">username</p>
+						<p display="inline">10.02.2019 / 15:40</p>
+						<ul class = "hastag">
+						<li><a href="index.html">#lorem</a></li>
+						<li><a href="index.html">#adip</a></li>
+					</div>
+					<div class = "textfield">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
+					<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
+						<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
+						<img src="icons/devider.png" class = "dev">
+				</article>
+
+				<article>
+					<img src="pictures/9.jpg" class = "picture">
+					<div class="left-description">
+						<p class="description">username</p>
+						<p display="inline">10.02.2019 / 15:40</p>
+						<ul class = "hastag">
+						<li><a href="index.html">#lorem</a></li>
+						<li><a href="index.html">#adip</a></li>
+					</div>
+					<div class = "textfield">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
+					<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
+						<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
+						<img src="icons/devider.png" class = "dev">
+				</article>
+
+				<article>
+					<img src="pictures/10.jpg" class = "picture">
+					<div class="left-description">
+						<p class="description">username</p>
+						<p display="inline">10.02.2019 / 15:40</p>
+						<ul class = "hastag">
+						<li><a href="index.html">#lorem</a></li>
+						<li><a href="index.html">#adip</a></li>
+					</div>
+					<div class = "textfield">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+					<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
+					<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
+						<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
+					</article>
 			</div>
-      </div>
-    </nav>
-  </header>
-<div class = "main-container">
-	<div class = "photo-box">
-		<div class = "album">
-		<img src="pictures/1.jpg" class = "picture">
-		<div class="left-description">
-		<p class="description" id="name">username</p>
-		<p display="inline" id="date">10.02.2019 / 15:40</p>
-		<p  class="hastag"><a href="index.html"> #lorem</a><a href="index.html">#adipiscing</a></p>
 		</div>
-		<div class = "textfield">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		</div>
-		<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
-		<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
-		<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
-		<img src="icons/devider.png" class = "dev">
+
+		
+		<button class="button" id = "load" >
+			Load More...
+		</button>
 		
 
-		<img src="pictures/2.jpg" class = "picture">
-		<div class="left-description">
-		<p class="description">username</p>
-		<p display="inline">10.02.2019 / 15:40</p>
-		<p  class="hastag"><a href="index.html"> #lorem</a><a href="index.html">#adipiscing</a></p>
-		</div>
-		<div class = "textfield">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		</div>
-		<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
-		<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
-		<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
-		<img src="icons/devider.png" class = "dev">
-
-		<img src="pictures/3.jpg" class = "picture">
-		<div class="left-description">
-		<p class="description">username</p>
-		<p display="inline">10.02.2019 / 15:40</p>
-		<p  class="hastag"><a href="index.html"> #lorem</a><a href="index.html">#adipiscing</a></p>
-		</div>
-		<div class = "textfield">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		</div>
-		<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
-		<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
-		<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
-		<img src="icons/devider.png" class = "dev">
-
-		<img src="pictures/4.jpg" class = "picture">
-		<div class="left-description">
-		<p class="description">username</p>
-		<p display="inline">10.02.2019 / 15:40</p>
-		<p  class="hastag"><a href="index.html"> #lorem</a><a href="index.html">#adipiscing</a></p>
-		</div>
-		<div class = "textfield">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		</div>
-		<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
-		<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
-		<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
-		<img src="icons/devider.png" class = "dev">
-
-		<img src="pictures/5.jpg" class = "picture">
-		<div class="left-description">
-		<p class="description">username</p>
-		<p display="inline">10.02.2019 / 15:40</p>
-		<p  class="hastag"><a href="index.html"> #lorem</a><a href="index.html">#adipiscing</a></p>
-		</div>
-		<div class = "textfield">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		</div>
-		<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
-		<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
-		<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
-		<img src="icons/devider.png" class = "dev">
-
-		<img src="pictures/6.jpg" class = "picture">
-		<div class="left-description">
-		<p class="description">username</p>
-		<p display="inline">10.02.2019 / 15:40</p>
-		<p  class="hastag"><a href="index.html"> #lorem</a><a href="index.html">#adipiscing</a></p>
-		</div>
-		<div class = "textfield">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		</div>
-		<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
-		<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
-		<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
-		<img src="icons/devider.png" class = "dev">
-
-		<img src="pictures/7.jpg" class = "picture">
-		<div class="left-description">
-		<p class="description">username</p>
-		<p display="inline">10.02.2019 / 15:40</p>
-		<p  class="hastag"><a href="index.html"> #lorem</a><a href="index.html">#adipiscing</a></p>
-		</div>
-		<div class = "textfield">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		</div>
-		<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
-		<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
-		<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
-		<img src="icons/devider.png" class = "dev">
-
-		<img src="pictures/8.jpg" class = "picture">
-		<div class="left-description">
-		<p class="description">username</p>
-		<p display="inline">10.02.2019 / 15:40</p>
-		<p  class="hastag"><a href="index.html"> #lorem</a><a href="index.html">#adipiscing</a></p>
-		</div>
-		<div class = "textfield">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		</div>
-		<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
-		<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
-		<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
-		<img src="icons/devider.png" class = "dev">
-
-		<img src="pictures/9.jpg" class = "picture">
-		<div class="left-description">
-		<p class="description">username</p>
-		<p display="inline">10.02.2019 / 15:40</p>
-		<p  class="hastag"><a href="index.html"> #lorem</a><a href="index.html">#adipiscing</a></p>
-		</div>
-		<div class = "textfield">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		</div>
-		<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
-		<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
-		<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
-		<img src="icons/devider.png" class = "dev">
-
-		<img src="pictures/10.jpg" class = "picture">
-		<div class="left-description">
-		<p class="description">username</p>
-		<p display="inline">10.02.2019 / 15:40</p>
-		<p  class="hastag"><a href="index.html"> #lorem</a><a href="index.html">#adipiscing</a></p>
-		</div>
-		<div class = "textfield">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		</div>
-		<div class="left"><a href="index.html"><img src="icons/like.png" class="icon" id="iconinbox"></a></div>
-		<div class="right"><a href="index.html"><img src="icons/edit.png" class="icon" id="iconinbox"></a>
-		<a href="index.html"><img src="icons/delete.png" class="icon" id="iconinbox"></a></div>
-	</div>
-	</div>
-
-
-	<a href="index.html">
-		<button class="button" id = "load">
-			<h3>Load More...</h3>
-		</button>
-	</a>
-
 	<footer>
-	<div class = "foot-container">
-		<div class = "left-footer"><p>Photo Album</p><p>Last Update: 04.03.2019</p></div>
-		<div class = "right-footer"><p>Created by Lazarchuk Viktoryia, group 4</p><p>lazarchuk.viktoriya@gmail.com</p></div>
-	</div>
-</footer>
-</div>
-
-
+		<div class = "foot-container">
+			<div class = "left-footer"><p>Photo Album</p><p>Last Update: 04.03.2019</p></div>
+			<div class = "right-footer"><p>Created by Lazarchuk Viktoryia, group 4</p><p>lazarchuk.viktoriya@gmail.com</p></div>
+		</div>
+	</footer>
 
 </body>
+	<script src="script.js"></script>
 </html>
