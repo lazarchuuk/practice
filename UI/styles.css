@@ -1,13 +1,13 @@
-*{
+* {
 	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 a{
-	line-height: 0;
 	text-decoration: none;
 	color: #1c6a6a;
 }
 h1{
-	text-align: center;
 	font-family: 'Acme', sans-serif;
 	font-weight: 400;
 	font-size: 36px;
@@ -22,22 +22,37 @@ h3{
 	margin: 0;
 }
 
-/*ПАНЕЛЬ НАВИГАЦИИ*/
+ul.menu {
+	display: flex;
+	flex-flow: row;
+	list-style: none;
+}
+
+ul.menu li{
+	margin-right: 5px;
+}
+ul.menu li:last-child {
+	margin-right: 0;
+}
+
+/*NAVIGATION BAR*/
 .nav-container{
+	display: flex;
+	align-items: center;
 	border-radius: 5px; 
 	text-align: center;
 	background: #eff1f2;
 	width: 700px;
 	height: 50px;
 	margin: 1% auto;
-	padding-left: 1%;
+	padding: 0 1%;
 }
-.left-pos{
-	float: left;	
+.logo{
+	flex: 1 0 auto;
+	text-align: left;
 }
 .right-pos{
-	float:right;
-	width: 25%;
+	justify-content: flex-end;
 }
 .right-but{
 	margin-left: 10px;
@@ -45,7 +60,7 @@ h3{
 	line-height: 3.25;
 }
 
-/*ГЛАВНАЯ ЧАСТЬ*/
+/*MAIN PART*/
 .main-container{
 	padding-top: 2%;
 	background: #eff1f2;
@@ -82,7 +97,6 @@ h3{
 
 .left-description{
 	float: left;
-	line-height: 0.5;
 	text-align: left;
 	font-family: 'Laila', serif;
 	font-weight:  bold;
@@ -114,12 +128,25 @@ h3{
 	font-weight: 500;
 	letter-spacing: normal;
 }
+ul.hastag {
+	display: flex;
+	flex-flow: row;
+	list-style: none;
+}
 
-/*ФУТЕР*/
+ul.hastag li{
+	margin-right: 5px;
+}
+ul.hastag li:last-child {
+	margin-right: 0;
+}
+
+/*FOOTER*/
 .foot-container{
 	position: absolute;
 	background: #25282a;
 	width: 700px;
+	height: 50px;
 	margin: 2% auto;
 	font-family: 'Josefin Sans', sans-serif;
 	font-size: 16px;
@@ -127,22 +154,21 @@ h3{
 	font-weight: 400;
 	letter-spacing: normal;
 	color: #616e7e;
-	line-height: 0.7;
 	border-radius: 15px; 
 }
 
 .left-footer{
 	float: left;
 	text-align: left;
-	margin-left: 2%; 
+	margin: 1% 2%; 
 }
 
 .right-footer{
 	float: right;
 	text-align: right;
-	margin-right: 2%;
+	margin: 1% 2%;
 }
-/*ИЗОБРАЖЕНИЯ*/
+/*PICTURES*/
 .icon{
 	vertical-align: text-bottom;
 	display: inline;
@@ -162,18 +188,24 @@ h3{
 	width: 120%;
 	margin: -30px 0 20px -50px;
 }
-/*КНОПКИ*/
+/*BUTTONS*/
 .button{
 	height: 40px;
 	border-radius: 5px;
 	border: 0px;
 	color: white;
 	margin-top: 2% 
+	font-size: 20px;
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
 }
 #load{
 	background-color: #1c6a6a;
 	width: 280px;
 	margin-bottom: 2%;
+	font-size: 22px;
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
 }
 #login{
 	background-color: #1c6a6a;
@@ -181,10 +213,10 @@ h3{
 	line-height: 0;
 	margin-top: 3%;
 }
-a:hover #load, a:hover #login{
+#load:hover, a:hover #login{
 	background-color: #616e7e;
 }
-a:active #load, a:active #login{
+#load:active, a:active #login{
 	background-color: #78afa9;
 }
 
@@ -196,7 +228,7 @@ a:active .icon{
 	filter: opacity(0.5);
 }
 
-/*ИЗМЕНЕНИЕ РАЗМЕРОВ*/
+/*RESPONSIBILITY*/
 @media (min-width: 1000px)
 {
 	.nav-container{
