@@ -121,7 +121,7 @@ function addPhotoPost(photoPost){
 function removePhotoPost(id){
   photoPosts.splice((id-1), 1);
 }
-//getPhotoPosts(3, 7, "User");
+getPhotoPosts(3, 7, "User");
 //getPhotoPost(4);
 //addPhotoPost({id: '11', descriprion: "Lorem", createdAt: new Date('2018-01-01T05:40:00'),
      //         author: 'Viktoriyaa', photoLink: "pictures/10.jpg"});
