@@ -1,4 +1,4 @@
-class ListOfPosts{
+class PhotoList{
   constructor(photoPosts) {
     this._photoPosts = photoPosts;
   }
@@ -6,24 +6,25 @@ class ListOfPosts{
   // sort by date function
 
   _validatePhotoPost(photoPost){
-    console.log(photoPost)
+   // console.log(photoPost)
     if ((!photoPost.id)||(!photoPost.description)||(!photoPost.createdAt)
       ||(!photoPost.author)||(!photoPost.photoLink)) {
       return false;
     }
-    if (this._photoPosts.find((post) => post.id == photoPost.id)) return false;
+
+    if (this.get(id)) return false;
     if (photoPost.description.length >= 200) return false;
     return true;
   }
 
-  getPage(skip = 0, top = 10, filterConfig){
+  getPage(skip = 0, top = 10, filterConfig = {}){
 
     return this._photoPosts.filter(post => {
-      for (const field in filterConfig) {
+      return Object.keys(filterConfig).every((key) =>
         if (JSON.stringify(filterConfig[field]) != JSON.stringify(post[field])) return false;
       }
-      return true;
     }).slice(skip, top + skip);
+    // sort missed
   }
 
   get(id){
@@ -31,22 +32,24 @@ class ListOfPosts{
   }
 
   add(photoPost){
-  if(!this._validatePhotoPost(photoPost)) return false;
-  this._photoPosts.push(photoPost);
-  return true;
+    if(!this._validatePhotoPost(photoPost)) return false;
+    this._photoPosts.push(photoPost);
+    return true;
   }
 
   edit(id, editConfig){
     if((editConfig.photoLink === '') || ((editConfig.description && editConfig.description.length >= 200))) return false;
     const post = this.get(id);
-    for(const field in editConfig){
-      post[field] = editConfig[field];
-    }
+    // for(const field in editConfig){
+    //   post[field] = editConfig[field];
+    // }
+    Object.assign(post, editConfig);
+    // copy Object.assign({}, origin);
     return true;
   }
 
   removePhotoPost(id){
-  this._photoPosts = this._photoPosts.filter((post) => post.id != id);
+    this._photoPosts = this._photoPosts.filter((post) => post.id != id);
   }
 }
 
@@ -58,7 +61,7 @@ class ListOfPosts{
 
 //editPhotoPost(3, {id: "Lorem"});
 
-const Post = new ListOfPosts(photoPosts);
+const Post = new PhotoList(photoPosts);
 //Post.removePhotoPost(3);
 //Post.edit(3, { photoLink: 'http://haradok.info/static/news/5/4565/preview.jpg' });
 console.log(Post);
