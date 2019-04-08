@@ -1,0 +1,33 @@
+.edit-box{
+	border-radius: 5px; 
+	padding: 4% 0 1%;
+	width: 620px;
+	margin: auto;
+	text-align: center;
+	background: white;
+}
+.addphoto{
+	margin: 0 5%;
+	float: left;
+	width: 300px;
+	border: 5px solid #1c6a6a;
+	border-radius: 3px;
+}
+.divider{
+	margin:2% 0;
+	width: 100%;
+}
+.textarea{
+	border: 1.5px solid #1c6a6a;
+	width: 200px;
+	resize: none;
+}
+.description{
+	text-align: left;
+}
+article{
+	text-align: center;
+}
+[name=inp]{
+	display: none;
+}
