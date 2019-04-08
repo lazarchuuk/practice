@@ -15,6 +15,7 @@ class LoginController{
 			e.preventDefault();
 		}
 		else localStorage.setItem('username', 'vika');
+		
 	} 
 }
 
