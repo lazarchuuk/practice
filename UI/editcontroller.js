@@ -17,7 +17,7 @@ class EditController{
 		const description = this.editForm.description.value;
 		//tags here
 		if (localStorage.getItem('editablePostId')) {
-			
+
 		} else {
 			(new PhotoList()).add({
 				id: Math.random(),
@@ -25,7 +25,7 @@ class EditController{
 				photoLink: photo.src,
 				createdAt: Date.now(),
 				author: 'viktoriya',
-				tags: [],
+				tags: ['kek', 'omg'],
 				//author: localStorage.getItem('username'),
 			})
 		}

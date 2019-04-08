@@ -3,22 +3,21 @@ class View {
 		this.album = document.querySelector(".album");
 	} 
 
-	isAuthorized = () => false; 
+	isAuthorized = () => true; 
 
 	displayHeader = () => {
 		const header = document.createElement('header');
 		header.innerHTML = `
 			<nav class="nav-container">
 				<a href="index.html" class = "logo">
-					<h1>Photo Album</h1>
-				</a>
+					<h1>Photo Album</h1></a>
 				<ul class="menu right-pos">
 					<li>
 						<img src="icons/search.png" alt="search icon" class="icon" align="middle"> 
 					</li>
 					${this.isAuthorized() ? `
 						<li>
-							<a href="index.html"><img src="icons/user.png" alt="User icon" class ="icon" align="middle"></a>
+							<a href = "edit.html"><img src="icons/user.png" alt="User icon" class ="icon" align="middle"></a>
 						</li>
 						<li>
 							<a href="index.html"><img src="icons/logout.png" alt="Logout" class ="icon" align="middle"></a>
@@ -50,11 +49,20 @@ class View {
 				<p class="textfield">${post.description}</p>
 			</div>
 			${this.getTagList(post.tags)}
-			<div class="photo-but">
+
+			${this.isAuthorized() ? `
+				<div class="photo-but">
 				<p class = "like"><img src="icons/like.png" class="icon" id="iconinbox"></p>
 				<p class = "edit"><a href = "edit.html"><img src="icons/edit.png" class="icon" id="iconinbox"></p></a>
 				<p class = "edit"><img src="icons/delete.png" class="icon" id="iconinbox"></p>
 			</div>
+			` : `
+			<div class="photo-but">
+				<p class = "like"><img src="icons/like.png" class="icon" id="iconinbox"></p>
+			</div>
+			`}
+
+			
 			<img src="icons/devider.png" class="dev">
   		`;
   		return article;

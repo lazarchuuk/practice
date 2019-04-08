@@ -62,7 +62,7 @@ ul.menu li:last-child {
 
 /*MAIN PART*/
 .main-container{
-	padding-top: 2%;
+	padding: 2% 0;
 	background: #eff1f2;
 	width: 700px;
 	margin: auto;
@@ -70,23 +70,30 @@ ul.menu li:last-child {
 	border-radius: 15px; 
 }
 
-.left{
-	float: left;
-	margin: 2% 0 10%;
+.photo-but{
+	display: flex;
+	flex-flow: row wrap;
+	margin: 20px 0 30px;
 }
-.right{
-	float: right;
-	margin: 2% 0 10%;
+
+.like{
+	align-self: flex-start;
+	margin-right: auto;
+}
+.edit{
+	align-self: flex-end;
+	margin-right: 5px;
 }
 
 .photo-box{
+	display: flex;
 	border-radius: 5px; 
 	padding-top: 6%;
 	width: 600px;
 	margin: auto;
 	text-align: center;
 	background: white;
-	padding-bottom: 7%;
+	margin-bottom: 10px;
 }
 
 .album{
@@ -95,54 +102,60 @@ ul.menu li:last-child {
 	text-align: justify;
 }
 
-.left-description{
-	float: left;
-	text-align: left;
+.description{
+	display: flex;
+	min-height: 90px;
+	flex-flow: column wrap;
 	font-family: 'Laila', serif;
-	font-weight:  bold;
-	letter-spacing: normal;
+	font-weight: bold;
 	color: #2E3038;
 }
 #name{
 	font-size: 22px;
+	width: 100px;
+
 }
 #date{
 	font-size: 16px;
+	width: 200px;
 }
 .textfield{
+	align-self: flex-end;
+	margin-top: -53px;
+	width: 300px;
+	text-align: justify;
 	font-family: 'Laila', serif;
 	font-size: 14px;
 	font-style: normal;
 	font-weight: 400;
 	letter-spacing: normal;
 	color: #2E3038;
-	margin-left: 25%;
-	padding-left: 80px;
-	text-align: justify;
 }
-
 .hastag{
 	font-family: 'Neucha', cursive;
 	font-size: 18px;
 	color: #1c6a6a;
 	font-weight: 500;
-	letter-spacing: normal;
+	min-height: 20px;
 }
 ul.hastag {
 	display: flex;
-	flex-flow: row;
+	flex-flow: row wrap;
 	list-style: none;
+	flex-grow: 1;
+	width: 210px;
+	margin-top: -30px;
 }
 
 ul.hastag li{
-	margin-right: 5px;
+	margin-right: 7px;
 }
 ul.hastag li:last-child {
 	margin-right: 0;
 }
 
 /*FOOTER*/
-.foot-container{
+.foot-container{	
 	position: absolute;
 	background: #25282a;
 	width: 700px;
@@ -171,7 +184,7 @@ ul.hastag li:last-child {
 /*PICTURES*/
 .icon{
 	vertical-align: text-bottom;
-	display: inline;
+	display: inline-flex;
 	width: 40px;
 	margin: 3% 4% 0;
 }
@@ -186,7 +199,11 @@ ul.hastag li:last-child {
 }
 .dev{
 	width: 120%;
+	height: 60px;
 	margin: -30px 0 20px -50px;
+}
+article:last-child .dev {
+	display: none;
 }
 /*BUTTONS*/
 .button{
@@ -204,8 +221,6 @@ ul.hastag li:last-child {
 	width: 280px;
 	margin-bottom: 2%;
 	font-size: 22px;
-	font-family: 'Poppins', sans-serif;
-	margin: 0;
 }
 #login{
 	background-color: #1c6a6a;
@@ -297,3 +312,4 @@ a:active .icon{
 		font-size: 36px;
 	}
 }
+*/
