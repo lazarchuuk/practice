@@ -1,7 +1,5 @@
 class LoginController{
-	constructor(){
-		this.loginForm = document.querySelector("#login-form");
-		this.loginForm.addEventListener('submit', this.onSubmit);	
+	constructor(){	
 	} 
 
 	getName = () => {
@@ -11,11 +9,11 @@ class LoginController{
 	onSubmit = (e) => {
 		const name = this.loginForm.username.value;
 		const password = this.loginForm.password.value;
-		if((name !== 'vika')||(password !== '1234')){
-			e.preventDefault();
+		if((name === 'vika')&&(password === '1234')){
+			localStorage.setItem('username', 'vika');
+			location.replace('index.html');
 		}
-		else localStorage.setItem('username', 'vika');
-		
+		e.preventDefault();
 	} 
 }
 

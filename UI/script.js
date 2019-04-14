@@ -3,8 +3,6 @@ class ListOfPosts{
     this._photoPosts = photoPosts;
   }
 
-  // sort by date function
-
   _validatePhotoPost(photoPost){
     console.log(photoPost)
     if ((!photoPost.id)||(!photoPost.description)||(!photoPost.createdAt)
@@ -17,7 +15,6 @@ class ListOfPosts{
   }
 
   getPage(skip = 0, top = 10, filterConfig){
-
     return this._photoPosts.filter(post => {
       for (const field in filterConfig) {
         if (JSON.stringify(filterConfig[field]) != JSON.stringify(post[field])) return false;
@@ -31,9 +28,10 @@ class ListOfPosts{
   }
 
   add(photoPost){
-  if(!this._validatePhotoPost(photoPost)) return false;
-  this._photoPosts.push(photoPost);
-  return true;
+    if(!this._validatePhotoPost(photoPost)) return false;
+    this._photoPosts.push(photoPost);
+    localStorage.setItem("photoPosts", JSON.stringify(this._photoPosts));
+    return true;
   }
 
   edit(id, editConfig){
@@ -46,10 +44,14 @@ class ListOfPosts{
   }
 
   removePhotoPost(id){
-  this._photoPosts = this._photoPosts.filter((post) => post.id != id);
+    this._photoPosts = this._photoPosts.filter((post) => post.id != id);
+    localStorage.setItem("photoPosts", JSON.stringify(this._photoPosts));
   }
 }
 
+// localStorage.setItem("photoPosts", '[]')
+const Post = new ListOfPosts(JSON.parse(localStorage.getItem("photoPosts")));
+console.log(Post);
 //getPage(9, 7, "User");
 //getPhotoPost(4);
 //addPhotoPost({id: '11', descriprion: "Lorem", createdAt: new Date('2018-01-01T05:40:00'),
@@ -58,9 +60,9 @@ class ListOfPosts{
 
 //editPhotoPost(3, {id: "Lorem"});
 
-const Post = new ListOfPosts(photoPosts);
+
 //Post.removePhotoPost(3);
 //Post.edit(3, { photoLink: 'http://haradok.info/static/news/5/4565/preview.jpg' });
-console.log(Post);
+
 //console.log(Post._validatePhotoPost({id: '11'}));
 //console.log(Post.getPage(0, 4, { createdAt: new Date('2019-03-23T18:10:00') }));
