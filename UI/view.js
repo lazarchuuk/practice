@@ -16,7 +16,7 @@ class View {
 		<h3>username</h3>
 		<input name = "username" class = "control" type = "text">
 		<h3>password</h3>					
-		<input name = "password" class = "control" type = "text">
+		<input name = "password" class = "control" type = "password">
 
 		<img src="icons/devider.png" class = "divider">
 
