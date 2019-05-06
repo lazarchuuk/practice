@@ -1,6 +1,6 @@
 class ListOfPosts{
-  constructor(photoPosts) {
-    this._photoPosts = photoPosts;
+  constructor() {
+    this._photoPosts = JSON.parse(localStorage.getItem("photoPosts"));
   }
 
   _validatePhotoPost(photoPost){
@@ -10,7 +10,7 @@ class ListOfPosts{
       return false;
     }
     if (this._photoPosts.find((post) => post.id == photoPost.id)) return false;
-    if (photoPost.description.length >= 200) return false;
+    if (photoPost.description.length > 200) return false;
     return true;
   }
 
@@ -37,9 +37,11 @@ class ListOfPosts{
   edit(id, editConfig){
     if((editConfig.photoLink === '') || ((editConfig.description && editConfig.description.length >= 200))) return false;
     const post = this.get(id);
-    for(const field in editConfig){
+    for(const field in editConfig) {
       post[field] = editConfig[field];
     }
+    console.log(this._photoPosts)
+    localStorage.setItem("photoPosts", JSON.stringify(this._photoPosts));
     return true;
   }
 

@@ -124,6 +124,8 @@ ul.menu li:last-child {
 	width: 200px;
 }
 .textfield{
+	text-overflow: ellipsis;
+	overflow: hidden;
 	align-self: flex-end;
 	margin-top: -53px;
 	width: 300px;
