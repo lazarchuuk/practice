@@ -1,0 +1,1 @@
+SELECT * FROM `photo album`.photo_post order by creation_date;
