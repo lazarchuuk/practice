@@ -48,6 +48,8 @@ class View {
 		shadow.addEventListener("click", () => {
 			// ... remove popup
 			// ... remove shadow
+			shadow.classList.remove("shadow");
+			
 		})
 		document.body.style.overflow = 'hidden';
 	}
@@ -79,6 +81,12 @@ class View {
 		const shadow = document.createElement("div");
 		shadow.classList.add("shadow");
 		document.body.insertBefore(shadow, document.body.firstChild);
+		shadow.addEventListener("click", () => {
+			// ... remove popup
+			// ... remove shadow
+			shadow.classList.remove("shadow");
+			spopup.classList.remove("search-popup");		
+		})
 
 		document.body.style.overflow = 'hidden';
 	}
