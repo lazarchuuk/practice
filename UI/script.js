@@ -1,10 +1,10 @@
+
 class ListOfPosts{
   constructor() {
     this._photoPosts = JSON.parse(localStorage.getItem("photoPosts"));
   }
 
   _validatePhotoPost(photoPost){
-    console.log(photoPost)
     if ((!photoPost.id)||(!photoPost.description)||(!photoPost.createdAt)
       ||(!photoPost.author)||(!photoPost.photoLink)) {
       return false;
@@ -14,13 +14,17 @@ class ListOfPosts{
     return true;
   }
 
-  getPage(skip = 0, top = 10, filterConfig){
-    return this._photoPosts.filter(post => {
+  getPage(skip = 0, top = 2, filterConfig = {}) {
+    const result = this._photoPosts.filter(post => {
       for (const field in filterConfig) {
+        if (filterConfig[field] === '') return true;
+        if (field === 'fromDate') return filterConfig[field] == 'Invalid Date' ? true : filterConfig[field] < post.createdAt;
+        if (field === 'toDate') return filterConfig[field] == 'Invalid Date' ? true : filterConfig[field] > post.createdAt;
         if (JSON.stringify(filterConfig[field]) != JSON.stringify(post[field])) return false;
       }
       return true;
-    }).slice(skip, top + skip);
+    }).slice(skip * top, (skip + 1) * top);
+    return result;
   }
 
   get(id){

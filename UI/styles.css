@@ -1,3 +1,4 @@
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -357,8 +358,10 @@ article:last-child .dev {
 	top: 0;
 }
 
-.edit-popup {
+.edit-popup, .add-popup {
 	position: fixed;
+	left: 30%;
+	top: 25%;
 	background: white;
 	z-index: 10;
 	border-radius: 5px; 
@@ -378,6 +381,14 @@ article:last-child .dev {
 	border: 1.5px solid #1c6a6a;
 	width: 200px;
 	resize: none;
+}
+.tagInp{
+	margin: 2% 0%;
+	width: 60px;
+}
+.addtag{
+	display: inline-block;
+	width: 20px;
 }
 .description{
 	text-align: left;

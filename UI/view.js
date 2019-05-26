@@ -1,5 +1,7 @@
 class View {
-	constructor(){
+	constructor() {
+		this.page = 0;
+		this.filterConfig = {};
 		this.album = document.querySelector(".album");
 		this.listOfPosts = new ListOfPosts();
 	} 
@@ -46,12 +48,18 @@ class View {
 		shadow.classList.add("shadow");
 		document.body.insertBefore(shadow, document.body.firstChild);
 		shadow.addEventListener("click", () => {
-			// ... remove popup
-			// ... remove shadow
-			shadow.classList.remove("shadow");
 			
 		})
 		document.body.style.overflow = 'hidden';
+		document.body.style.paddingRight = '16px';
+		const onClose = () => {
+			popup.remove();
+			shadow.remove();
+			document.body.style.overflow = 'auto';
+			document.body.style.paddingRight = '';
+		}
+
+		shadow.addEventListener('click', onClose);
 	}
 
 	displaySearchPopup = () => {
@@ -59,11 +67,11 @@ class View {
 		spopup.innerHTML = `
 		<form id="search-form">
 			<div class="description search-name">Enter username:
-				<textarea class="textarea search-name" rows="1" maxlength="30" name = "searchname"></textarea>
+				<input class="textarea search-name" name = "search"></input>
 			</div>
 			<div class="description search-name">Choose date (from-to):  
-					<p><input type="date" class = "textarea" name="calendar"></p>
-					<p><input type="date" class = "textarea" name="calendar"></p>
+					<p><input type="date" class = "textarea" name="fromDate"></p>
+					<p><input type="date" class = "textarea" name="toDate"></p>
 			</div>	
 			<button class="button" id = "search" name = "submit">Search!</button>				
 		</form>	`
@@ -71,24 +79,35 @@ class View {
 		spopup.classList.add("search-popup");
 		document.body.insertBefore(spopup, document.body.firstChild);
 
+		const onClose = () => {
+			spopup.remove();
+			shadow.remove();
+			document.body.style.overflow = 'auto';
+			document.body.style.paddingRight = '';
+		}
+
 		const onSubmit = (e) => {
-			const username = this.searchname.value;
-			localStorage.getItem(username);
-			this.getPage(' ', ' ', username)
 			e.preventDefault();
+			const author = this.searchForm.search[0].value;
+			const fromDate = new Date(this.searchForm.fromDate.value);
+			const toDate = new Date(this.searchForm.toDate.value);
+			this.filterConfig = { author, fromDate, toDate };
+			this.removePosts();
+			this.page = 0;
+			this.displayPosts(this.listOfPosts.getPage(0, 5, this.filterConfig));
+			onClose();
 		} 
+
+		this.searchForm = document.querySelector("#search-form");
+		this.searchForm.addEventListener('submit', onSubmit);
 
 		const shadow = document.createElement("div");
 		shadow.classList.add("shadow");
 		document.body.insertBefore(shadow, document.body.firstChild);
-		shadow.addEventListener("click", () => {
-			// ... remove popup
-			// ... remove shadow
-			shadow.classList.remove("shadow");
-			spopup.classList.remove("search-popup");		
-		})
+		shadow.addEventListener("click", onClose);
 
 		document.body.style.overflow = 'hidden';
+		document.body.style.paddingRight = '16px';
 	}
 
 	displayEditPopup = (id) => {
@@ -115,6 +134,12 @@ class View {
 		</form>	`
 		epopup.classList.add("edit-popup");
 		document.body.insertBefore(epopup, document.body.firstChild);
+		const onClose = () => {
+			epopup.remove();
+			shadow.remove();
+			document.body.style.overflow = 'auto';
+			document.body.style.paddingRight = '';
+		}
 
 
 		const chooseFile = () => {
@@ -144,8 +169,10 @@ class View {
 		const shadow = document.createElement("div");
 		shadow.classList.add("shadow");
 		document.body.insertBefore(shadow, document.body.firstChild);
+		shadow.addEventListener("click", onClose);
 
 		document.body.style.overflow = 'hidden';
+		document.body.style.paddingRight = '16px';
 	}
 
 
@@ -160,8 +187,11 @@ class View {
 
 			<div class="description">
 				<p id="name">username</p>
-				<p display="inline" id="date">10.02.2019 / 15:40</p>
+				<p display="inline" id="date">dd.mm.yyyy / hh:mm</p>
 				<textarea class="textarea" rows="8" maxlength="200" name = "description"></textarea>
+				<div><input class = "tagInp textarea" name = "addTag"></input>
+				<button class = "addtag" name = "tagBut">+</button></div>
+				<p id = "tags"></p>
 			</div>
 
 			<img src="icons/devider.png" class = "divider">
@@ -172,6 +202,14 @@ class View {
 		</form>	`
 		apopup.classList.add("add-popup");
 		document.body.insertBefore(apopup, document.body.firstChild);
+		const onClose = () => {
+			apopup.remove();
+			shadow.remove();
+			document.body.style.overflow = 'auto';
+			document.body.style.paddingRight = '';
+		}
+
+		this.editForm = document.querySelector("#edit-form");
 
 
 		const chooseFile = () => {
@@ -182,31 +220,47 @@ class View {
 			fileReader.readAsDataURL(file);
 		}
 
+		const tagInp = this.editForm.addTag;
+		const tagBut = this.editForm.tagBut;
+		const addP = document.getElementById("tags");
+		const addTag = (event) => {
+			event.preventDefault();
+			const tag = tagInp.value;
+			tagInp.value = "";
+			const tagElem = document.createElement("span");
+			addP.insertBefore(tagElem, addP.firstChild);
+			tagElem.innerHTML = tag;
+		}
+		tagBut.addEventListener('click', addTag);
 		const onSubmit = (e) => {
 			e.preventDefault();
 			const photo = document.querySelector(".addphoto");
 			const description = this.editForm.description.value;
-			//tags here
+			const tagElems = document.getElementById("tags").children;
+			console.log(tagElems)
+			const tags = tagElems ? [].map.apply(tagElems, [(tag) => tag.textContent.textContent]) : [];
+			console.log(tags)
 			this.listOfPosts.add({
 				id: Math.random(),
 				description,
 				photoLink: photo.src,
 				createdAt: Date.now(),
-				tags: ['kek', 'omg'],
+				tags : tags,
 			    author: localStorage.getItem('username'),
 			})
-			location.reload();
+			//location.reload();
 		}
 
-		this.editForm = document.querySelector("#edit-form");
 		this.editForm.inp.addEventListener('input', chooseFile);
 		this.editForm.addEventListener('submit', onSubmit);	
 
 		const shadow = document.createElement("div");
 		shadow.classList.add("shadow");
+		shadow.addEventListener('click', onClose)
 		document.body.insertBefore(shadow, document.body.firstChild);
 
 		document.body.style.overflow = 'hidden';
+		document.body.style.paddingRight = '16px';
 	}
 
 	displayHeader = () => {
@@ -243,7 +297,7 @@ class View {
 			const loginBtn = document.getElementById("login");
 			loginBtn && loginBtn.addEventListener("click", this.displayAuthPopup);
 			const editBtn = document.getElementById("edit");
-			editBtn && editBtn.addEventListener("click", this.displayEditPopup);
+			editBtn && editBtn.addEventListener("click", this.displayAddPopup);
 			const searchBtn = document.getElementById("searching");
 			searchBtn && searchBtn.addEventListener("click", this.displaySearchPopup);
 
@@ -292,6 +346,11 @@ class View {
 				return `<ul class = "hastag">${list}</ul>`;
 			}
 
+			removePosts = () => {
+				const album = document.getElementsByClassName('album')[0];
+				album.innerHTML = "";
+			}
+
 			displayPosts = (posts) => {
 				posts.forEach(post => {
 					const el = this.createPostElement(post);
@@ -315,5 +374,18 @@ class View {
 
 				return this;
 			}
+			initLoadMore = () => {
+				const load = document.getElementById('load');
+				load.addEventListener('click', () => {
+					this.page++;
+					this.displayPosts(this.listOfPosts.getPage(this.page, 5, this.filterConfig));
+				})
+			}
+
+			init = () => {
+				this.displayHeader();
+				this.displayPosts(this.listOfPosts.getPage(this.page, 5));
+				this.initLoadMore();
+			}
 		}
-		(new View().displayHeader().displayPosts(JSON.parse(localStorage.getItem('photoPosts'))));
+		(new View().init());
