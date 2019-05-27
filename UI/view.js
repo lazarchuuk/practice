@@ -110,6 +110,10 @@ class View {
 		document.body.style.paddingRight = '16px';
 	}
 
+	displayTags = (tags) => {
+		return tags.map(tag => `<span>${tag}</span>`).join('');
+	}
+
 	displayEditPopup = (id) => {
 		const post = this.listOfPosts.get(id);
 		const epopup = document.createElement("div");
@@ -124,6 +128,11 @@ class View {
 				<p id="name">username</p>
 				<p display="inline" id="date">10.02.2019 / 15:40</p>
 				<textarea class="textarea" rows="8" maxlength="200" name = "description">${post.description}</textarea>
+				<div>
+					<input class = "tagInp textarea" name = "addTag"></input>
+					<button class = "addtag" name = "tagBut">+</button>
+				</div>
+				<p id = "tags">${this.displayTags(post.tags)}</p>
 			</div>
 
 			<img src="icons/devider.png" class = "divider">
@@ -132,8 +141,10 @@ class View {
 				Save and Publish
 			</button>
 		</form>	`
+
 		epopup.classList.add("edit-popup");
 		document.body.insertBefore(epopup, document.body.firstChild);
+		this.editForm = document.querySelector("#edit-form");
 		const onClose = () => {
 			epopup.remove();
 			shadow.remove();
@@ -162,7 +173,19 @@ class View {
 			location.reload();
 		}
 
-		this.editForm = document.querySelector("#edit-form");
+		const tagInp = this.editForm.addTag;
+		const tagBut = this.editForm.tagBut;
+		const addP = document.getElementById("tags");
+		const addTag = (event) => {
+			event.preventDefault();
+			const tag = tagInp.value;
+			tagInp.value = "";
+			const tagElem = document.createElement("span");
+			addP.insertBefore(tagElem, addP.firstChild);
+			tagElem.innerHTML = tag;
+		}
+		tagBut.addEventListener('click', addTag);
+
 		this.editForm.inp.addEventListener('input', chooseFile);
 		this.editForm.addEventListener('submit', onSubmit);	
 
@@ -189,8 +212,10 @@ class View {
 				<p id="name">username</p>
 				<p display="inline" id="date">dd.mm.yyyy / hh:mm</p>
 				<textarea class="textarea" rows="8" maxlength="200" name = "description"></textarea>
-				<div><input class = "tagInp textarea" name = "addTag"></input>
-				<button class = "addtag" name = "tagBut">+</button></div>
+				<div>
+					<input class = "tagInp textarea" name = "addTag"></input>
+					<button class = "addtag" name = "tagBut">+</button>
+				</div>
 				<p id = "tags"></p>
 			</div>
 
@@ -237,9 +262,7 @@ class View {
 			const photo = document.querySelector(".addphoto");
 			const description = this.editForm.description.value;
 			const tagElems = document.getElementById("tags").children;
-			console.log(tagElems)
-			const tags = tagElems ? [].map.apply(tagElems, [(tag) => tag.textContent.textContent]) : [];
-			console.log(tags)
+			const tags = tagElems ? [].map.apply(tagElems, [(tag) => tag.textContent]) : [];
 			this.listOfPosts.add({
 				id: Math.random(),
 				description,
@@ -247,8 +270,10 @@ class View {
 				createdAt: Date.now(),
 				tags : tags,
 			    author: localStorage.getItem('username'),
+			    likes: 0,
 			})
-			//location.reload();
+
+			location.reload();
 		}
 
 		this.editForm.inp.addEventListener('input', chooseFile);
@@ -315,22 +340,36 @@ class View {
 			</div>
 			${this.getTagList(post.tags)}
 
-			${this.isAuthorized() ? `
-				<div class="photo-but">
-				<p class = "like"><img src="icons/like.png" class="icon iconinbox"></p>
-				<p class = "edit"><img src="icons/edit.png" class="icon iconinbox icon-edit" name = "add"></p>
-				<p class = "delete"><img src="icons/delete.png" class="icon iconinbox icon-delete"></p>
-				</div>
-				` : `
-				<div class="photo-but">
-				<p class = "like"><img src="icons/like.png" class="icon iconinbox"></p>
-				</div>
-				`}
+			<div class="photo-but">
+				<p class = "like">
+					<img src="icons/like.png" class="icon iconinbox heart">
+					<span class="count">${post.likes}</span>
+				</p>
+				${this.isAuthorized() ? `
+					<p class = "edit"><img src="icons/edit.png" class="icon iconinbox icon-edit" name = "add"></p>
+					<p class = "delete"><img src="icons/delete.png" class="icon iconinbox icon-delete"></p>
+				` : `` }
+			</div>
+			<img src="icons/devider.png" class="dev">
+			`;
 
-
-				<img src="icons/devider.png" class="dev">
-				`;
-
+				[].forEach.apply(article.getElementsByClassName('tag'), [(tagElem) => {
+					tagElem.addEventListener('click', () => {
+						const tag = tagElem.textContent.slice(1);
+						this.page = 0;
+						this.removePosts();
+						this.displayPosts(this.listOfPosts.getPage(0, 5, { tag }));
+					})
+				}])
+				const heart = article.getElementsByClassName('heart')[0];
+				heart.addEventListener('click', () => {
+					this.listOfPosts.like(post.id);
+					const count = article.getElementsByClassName('count')[0];
+					const like = article.getElementsByClassName('like')[0];
+					count.textContent = post.likes;
+					like.removeChild(count);
+					like.appendChild(count);
+				})
 				article.setAttribute("data-id", post.id);
 				return article;
 
@@ -342,7 +381,7 @@ class View {
 			} 
 
 			getTagList = (tags) => {
-				const list = tags.reduce((s, tag) => s += `<li><a href="index.html">#${tag}</a></li>`, '');
+				const list = tags.reduce((s, tag) => s += `<li class="tag">#${tag}</li>`, '');
 				return `<ul class = "hastag">${list}</ul>`;
 			}
 
@@ -372,6 +411,7 @@ class View {
 					element.addEventListener("click", () => this.displayEditPopup(id));
 				}]);
 
+				scrollTo(0, 0);
 				return this;
 			}
 			initLoadMore = () => {

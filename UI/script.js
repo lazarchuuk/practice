@@ -15,16 +15,21 @@ class ListOfPosts{
   }
 
   getPage(skip = 0, top = 2, filterConfig = {}) {
-    const result = this._photoPosts.filter(post => {
-      for (const field in filterConfig) {
-        if (filterConfig[field] === '') return true;
-        if (field === 'fromDate') return filterConfig[field] == 'Invalid Date' ? true : filterConfig[field] < post.createdAt;
-        if (field === 'toDate') return filterConfig[field] == 'Invalid Date' ? true : filterConfig[field] > post.createdAt;
-        if (JSON.stringify(filterConfig[field]) != JSON.stringify(post[field])) return false;
-      }
-      return true;
-    }).slice(skip * top, (skip + 1) * top);
-    return result;
+    let result;
+    if (filterConfig.tag !== undefined) {
+      result = this._photoPosts.filter(post => post.tags.includes(filterConfig.tag));
+    } else {
+      result = this._photoPosts.filter(post => {
+        for (const field in filterConfig) {
+          if (filterConfig[field] === '') return true;
+          if (field === 'fromDate') return filterConfig[field] == 'Invalid Date' ? true : filterConfig[field] < post.createdAt;
+          if (field === 'toDate') return filterConfig[field] == 'Invalid Date' ? true : filterConfig[field] > post.createdAt;
+          if (JSON.stringify(filterConfig[field]) != JSON.stringify(post[field])) return false;
+        }
+        return true;
+      });
+    }
+    return result.slice(skip * top, (skip + 1) * top);
   }
 
   get(id){
@@ -44,7 +49,13 @@ class ListOfPosts{
     for(const field in editConfig) {
       post[field] = editConfig[field];
     }
-    console.log(this._photoPosts)
+    localStorage.setItem("photoPosts", JSON.stringify(this._photoPosts));
+    return true;
+  }
+
+  like(id){
+    const post = this.get(id);
+    post.likes++;
     localStorage.setItem("photoPosts", JSON.stringify(this._photoPosts));
     return true;
   }
@@ -55,7 +66,7 @@ class ListOfPosts{
   }
 }
 
-// localStorage.setItem("photoPosts", '[]')
+//localStorage.setItem("photoPosts", '[]')
 const Post = new ListOfPosts(JSON.parse(localStorage.getItem("photoPosts")));
 console.log(Post);
 //getPage(9, 7, "User");
